@@ -20,8 +20,6 @@
     NSLog(@"Parse error:\n%@", error);
     GHFail(@"Error: %@", error);
   }
-  
-  [parser release];
 }
 
 - (void)testError {
@@ -35,8 +33,6 @@
   } else {
     GHFail(@"Should have error");
   }
-  
-  [parser release];
 }
 
 - (void)testError2 {
@@ -51,8 +47,6 @@
   } else {
     GHFail(@"Should have error");
   }
-  
-  [parser release];
 }
 
 - (void)testComments {
@@ -65,8 +59,6 @@
     GHTestLog(@"Parse error:\n%@", error);    
     GHFail(@"Error: %@", error);
   }
-  
-  [parser release];
 }
 
 - (void)testFailOnComments {
@@ -80,8 +72,6 @@
   } else {
     GHFail(@"Should have error");
   }
-
-  [parser release];
 }
 
 - (void)testDoubleOverflow {
@@ -97,8 +87,6 @@
   } else {
     GHFail(@"Should have error");
   }
-  
-  [parser release];
 }
 
 - (void)testLongLongOverflow {
@@ -118,15 +106,12 @@
   } else {
     GHFail(@"Should have error");
   }
-  
-  [parser release];
 }
 
 - (void)testOverflow2 {
   YAJLParser *parser = [[YAJLParser alloc] initWithParserOptions:0];
   YAJLParserStatus status = [parser parse:[self loadData:@"overflow2"]];
   GHAssertTrue(status == YAJLParserStatusOK, @"Should have ok status");
-  [parser release];
 }
 
 - (void)testStreaming {
@@ -137,7 +122,6 @@
 
   status = [parser parse:[self loadData:@"stream2"]];
   GHAssertTrue(status == YAJLParserStatusOK, @"Should have finished");
-  [parser release];
 }
 
 // TODO(gabe): Should error if you try to re-use

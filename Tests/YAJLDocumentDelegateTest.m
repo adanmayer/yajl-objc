@@ -8,6 +8,8 @@
 
 #import "NSString+SBJSON.h"
 
+static NSInteger docIndex;
+
 @interface YAJLDocumentDelegateTest : YAJLTestCase <YAJLDocumentDelegate> {}
 @end
 
@@ -16,20 +18,19 @@
 - (void)test {
   NSData *data = [self loadData:@"document_streaming"];
   NSError *error = nil;
+  docIndex = 1;
   YAJLDocument *document = [[YAJLDocument alloc] init];
   document.delegate = self;
   [document parse:data error:&error];
   GHAssertNil(error, nil);
-  [document release];
 }
 
 - (void)document:(YAJLDocument *)document didSetObject:(id)object forKey:(id)key inDictionary:(NSDictionary *)dict {
   if ([key isEqualToString:@"test"]) return;
   
-  static NSInteger index = 1;
-  NSString *expectedKey = [NSString stringWithFormat:@"array%ld", (signed long)index];
-  NSArray *expectedValue = [NSArray arrayWithObject:[NSNumber numberWithInteger:index]];
-  index++;
+  NSString *expectedKey = [NSString stringWithFormat:@"array%ld", (signed long)docIndex];
+  NSArray *expectedValue = [NSArray arrayWithObject:[NSNumber numberWithInteger:docIndex]];
+  docIndex++;
   GHAssertEqualStrings(expectedKey, key, nil);
   GHAssertEqualObjects(expectedValue, object, nil);
   GHTestLog(@"Set object (dict): %@=%@", key, object);
