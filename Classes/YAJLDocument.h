@@ -116,7 +116,7 @@ extern NSInteger YAJLDocumentStackCapacity;
   YAJLParser *parser_;
   
   // TODO(gabe): This should be __weak
-  id<YAJLDocumentDelegate> delegate_;
+  __unsafe_unretained id<YAJLDocumentDelegate> delegate_;
   
   __weak NSMutableDictionary *dict_; // weak; if map in progress, points to the current map 
   __weak NSMutableArray *array_; // weak; If array in progress, points the current array

@@ -42,7 +42,7 @@
 		003B881F126EBBF8007A57F4 /* twitter_snowflake.json in Resources */ = {isa = PBXBuildFile; fileRef = 003B881E126EBBF8007A57F4 /* twitter_snowflake.json */; };
 		003B8823126EBC80007A57F4 /* overflow_longlong_macosx.json in Resources */ = {isa = PBXBuildFile; fileRef = 003B8822126EBC80007A57F4 /* overflow_longlong_macosx.json */; };
 		0041A103107E66B7001DDCA8 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0041A102107E66B7001DDCA8 /* GHUnit.framework */; };
-		0041A106107E66B9001DDCA8 /* GHUnit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0041A102107E66B7001DDCA8 /* GHUnit.framework */; };
+		0041A106107E66B9001DDCA8 /* GHUnit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0041A102107E66B7001DDCA8 /* GHUnit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		005BF33F10185ECF00C35A81 /* stream_array2.json in Resources */ = {isa = PBXBuildFile; fileRef = 005BF33E10185ECB00C35A81 /* stream_array2.json */; };
 		005BF34010185ED300C35A81 /* stream_array1.json in Resources */ = {isa = PBXBuildFile; fileRef = 005BF33D10185EC300C35A81 /* stream_array1.json */; };
 		00727D1910141A0A005F9BB7 /* YAJLGen.h in Headers */ = {isa = PBXBuildFile; fileRef = 00727D1710141A0A005F9BB7 /* YAJLGen.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -58,7 +58,7 @@
 		0080423B10184D8F0090C385 /* object_expected_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 0080423A10184D6F0090C385 /* object_expected_array.json */; };
 		0082B4271110FA9400B3178E /* overflow2.json in Resources */ = {isa = PBXBuildFile; fileRef = 0082B4261110FA9400B3178E /* overflow2.json */; };
 		008B7C680FF9E82500C791B4 /* PerfTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 008B7C670FF9E82500C791B4 /* PerfTest.m */; };
-		00A59D30109017410032BD92 /* YAJL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* YAJL.framework */; };
+		00A59D30109017410032BD92 /* YAJL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* YAJL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		00ABD1500FF9F36400965787 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C404750FE77543003CE908 /* NSObject+SBJSON.m */; };
 		00ABD1510FF9F36400965787 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C404770FE77543003CE908 /* NSString+SBJSON.m */; };
 		00ABD1520FF9F36500965787 /* SBJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C404790FE77543003CE908 /* SBJSONScanner.m */; };
@@ -565,7 +565,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0600;
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "YAJL" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -715,7 +715,7 @@
 			baseConfigurationReference = 00C4049D0FE77562003CE908 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = "${YAJL_VERSION}";
@@ -725,6 +725,7 @@
 					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -732,6 +733,7 @@
 				INFOPLIST_FILE = "Tests-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -747,7 +749,7 @@
 			baseConfigurationReference = 00C4049E0FE77562003CE908 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = "${YAJL_VERSION}";
@@ -756,12 +758,14 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
 				);
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tests_Prefix.pch;
 				INFOPLIST_FILE = "Tests-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -777,8 +781,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 00C4049D0FE77562003CE908 /* Debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_CURRENT_VERSION = "${YAJL_VERSION}";
+				GCC_ENABLE_OBJC_GC = unsupported;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 			};
 			name = Debug;
 		};
@@ -787,15 +794,18 @@
 			baseConfigurationReference = 00C4049E0FE77562003CE908 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_CURRENT_VERSION = "$(YAJL_VERSION)";
+				GCC_ENABLE_OBJC_GC = unsupported;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 			};
 			name = Release;
 		};
 		1DEB91B208733DA50010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -809,7 +819,7 @@
 		1DEB91B308733DA50010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

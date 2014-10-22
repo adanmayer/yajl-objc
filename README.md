@@ -10,6 +10,7 @@ The YAJL framework is an Objective-C framework for the [YAJL](http://lloyd.githu
 - Properly handles large numeric types.
 - Document style parser.
 - Error by exception or out error.
+- Use of ARC 
 
 ## Links
 
