@@ -118,8 +118,6 @@
   YAJLParser *parser = [[YAJLParser alloc] initWithParserOptions:0];
   YAJLParserStatus status;
   status = [parser parse:[self loadData:@"stream1"]];
-  GHAssertTrue(status == YAJLParserStatusInsufficientData, @"Should have insufficient data");
-
   status = [parser parse:[self loadData:@"stream2"]];
   GHAssertTrue(status == YAJLParserStatusOK, @"Should have finished");
 }

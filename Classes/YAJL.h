@@ -139,7 +139,6 @@
 
  // A chunk of data comes...
  YAJLParserStatus status = [parser parse:chunk1];
- // 'status' should be YAJLParserStatusInsufficientData, if its not finished
  if (parser.parserError)
    NSLog(@"Error:\n%@", parser.parserError);
 

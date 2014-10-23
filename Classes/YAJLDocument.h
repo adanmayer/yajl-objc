@@ -188,7 +188,6 @@ extern NSInteger YAJLDocumentStackCapacity;
  @result Parser status
   - YAJLParserStatusNone: No status
   - YAJLParserStatusOK: Parsed OK 
-  - YAJLParserStatusInsufficientData: There was insufficient data
   - YAJLParserStatusError: Parser errored
  */
 - (YAJLParserStatus)parse:(NSData *)data error:(NSError **)error;

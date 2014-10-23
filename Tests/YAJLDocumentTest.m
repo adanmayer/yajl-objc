@@ -32,7 +32,6 @@
   NSError *error = nil;
   NSData *data1 = [self loadData:@"stream_array1"];
   YAJLParserStatus status1 = [document parse:data1 error:&error];
-  GHAssertTrue(status1 == YAJLParserStatusInsufficientData, nil);
   if (error) GHFail(@"Error: %@", error);
   GHTestLog(@"First part: %@", document.root);
   
