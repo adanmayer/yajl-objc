@@ -121,7 +121,7 @@ int yajl_boolean(void *ctx, int boolVal) {
 //  return 1;
 //}
 
-int ParseDouble(void *ctx, const char *buf, const char *numberVal, unsigned int numberLen) {
+int ParseDouble(void *ctx, const char *buf, const char *numberVal, unsigned long numberLen) {
   double d = strtod((char *)buf, NULL);
   if ((d == HUGE_VAL || d == -HUGE_VAL) && errno == ERANGE) {
     NSString *s = [[NSString alloc] initWithBytes:numberVal length:numberLen encoding:NSUTF8StringEncoding];
@@ -235,7 +235,7 @@ yajl_end_array
 
 //! @endinternal
 
-- (unsigned int)bytesConsumed {
+- (size_t)bytesConsumed {
     return handle_ ? yajl_get_bytes_consumed(handle_) : 0;
 }
 
